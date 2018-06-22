@@ -137,7 +137,7 @@ public class MallItem {
 	/**
 	 * 创建时间
 	 */
-	@Column(name = "create_time")
+	@Column(name = "create_time", updatable = false)
 	private Date createTime;
 
 	@Transient
