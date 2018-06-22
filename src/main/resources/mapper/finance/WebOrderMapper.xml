@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.twshop.dao.finance.WebOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.twshop.entity.finance.WebOrder" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="merchant_id" property="merchantId" jdbcType="BIGINT" />
+    <result column="pay_method" property="payMethod" jdbcType="TINYINT" />
+    <result column="obj_type" property="objType" jdbcType="TINYINT" />
+    <result column="obj_id" property="objId" jdbcType="BIGINT" />
+    <result column="total_fee" property="totalFee" jdbcType="INTEGER" />
+    <result column="discount_fee" property="discountFee" jdbcType="INTEGER" />
+    <result column="pay_fee" property="payFee" jdbcType="INTEGER" />
+    <result column="pay_status" property="payStatus" jdbcType="TINYINT" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="deliver_addr" property="deliverAddr" jdbcType="VARCHAR" />
+    <result column="express_type" property="expressType" jdbcType="TINYINT" />
+    <result column="express_no" property="expressNo" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

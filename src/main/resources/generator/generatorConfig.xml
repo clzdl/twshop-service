@@ -64,9 +64,11 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
         
-        <table tableName="distribute_%">
+         <table tableName="web_order%">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
         --> 
+       
+        
     </context>
 </generatorConfiguration>

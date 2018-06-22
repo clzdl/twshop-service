@@ -219,12 +219,12 @@ CREATE TABLE `web_order` (
     `id` bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '费用支付订单',
     `user_id` bigint(20) NOT NULL COMMENT '用户Id',
     `merchant_id` bigint(20) NOT NULL COMMENT '商户ID',
+    `pay_method` tinyint DEFAULT '0' COMMENT '支付方式；0-微信；1-支付宝',
     `obj_type` tinyint DEFAULT '0' COMMENT '对象类型:0-普通商品',
     `obj_id` bigint(20) DEFAULT '0' COMMENT '对象ID',
     `total_fee` int(11) NOT NULL COMMENT '总金额(单位分)',
     `discount_fee` int(11) NOT NULL COMMENT '总优惠金额',
     `pay_fee` int(11) NOT NULL COMMENT '实际支付金额',
-    `pay_method` tinyint DEFAULT '0' COMMENT '支付方式；0-微信；1-支付宝',
     `pay_status` tinyint DEFAULT '0' COMMENT '支付状态；0-未支付；1-已支付；2-已退款',
     `pay_time` datetime DEFAULT NULL COMMENT '支付时间',
     `deliver_addr` varchar(256) NOT NULL DEFAULT '' COMMENT '用户邮寄地址',
@@ -232,7 +232,7 @@ CREATE TABLE `web_order` (
     `express_no` varchar(64) NOT NULL DEFAULT '' COMMENT '快递单号',
     `remark` varchar(50) NOT NULL DEFAULT '' COMMENT '备忘录',
     `ip` varchar(16) DEFAULT NULL COMMENT 'ip',
-    `status` tinyint DEFAULT '0' COMMENT '订单状态:0-待支付,1-待发货,2-待收货,3-已收货,4-申请退货,5-已退货,6-订单结束',
+    `status` tinyint DEFAULT '0' COMMENT '订单状态:0-待支付,1-待发货,2-待收货,3-已签收,4-申请退货,5-已退货,9-订单结束',
 
     `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modify_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -242,9 +242,9 @@ CREATE TABLE `web_order` (
 
 
 
-DROP TABLE IF EXISTS `weborder_paycache`;
+DROP TABLE IF EXISTS `web_order_cache`;
 /*订单缓存，则回退占用资源*/
-CREATE TABLE `weborder_paycache` (
+CREATE TABLE `web_order_cache` (
     `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '订单详情Id',
     `rec_type` tinyint DEFAULT '0' COMMENT '状态;0-待支付订单;',
     `obj_id` bigint(20) DEFAULT NULL COMMENT '订单ID',
